@@ -1,0 +1,230 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #f39c12;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav a {
+    color: #f5f5f5;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f39c12;
+}
+
+/* Section Styles */
+section {
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Featured Matches Section */
+.matches-container {
+    display: flex;
+    justify-content: space-around; /* Space out the match cards */
+    flex-wrap: wrap; /* Allow the cards to wrap on smaller screens */
+    gap: 20px; /* Add space between cards */
+}
+
+/* Featured Match Cards (Square) */
+.match-card {
+    background-color: #333;
+    border-radius: 8px; /* Slight rounded corners */
+    padding: 20px;
+    width: 250px; /* Fixed width for square */
+    height: 250px; /* Fixed height for square */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically center the content inside the card */
+}
+
+.match-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.star-rating {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+.match-title {
+    font-size: 1.8em;
+    color: #f5f5f5;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.match-details {
+    font-size: 1.1em;
+    color: #ddd;
+}
+
+.match-details div {
+    margin: 5px 0;
+}
+
+.match-details strong {
+    color: #f39c12;
+}
+
+
+/* PPV Images Grid */
+.ppv-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* PPV Cards */
+.ppv-card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ppv-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.ppv-card p {
+    font-size: 1.2em;
+    color: #f5f5f5;
+    margin-top: 10px;
+}
+
+.ppv-card a {
+    text-decoration: none;
+}
+
+/* Table Styling */
+.matches-table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #222;
+}
+
+.matches-table th,
+.matches-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+.matches-table th {
+    background-color: #333;
+    color: #f5f5f5;
+    font-size: 1.2em;
+}
+
+.matches-table td {
+    color: #ddd;
+    font-size: 1.1em;
+}
+
+.matches-table tr:nth-child(even) {
+    background-color: #333;
+}
+
+.matches-table tr:nth-child(odd) {
+    background-color: #444;
+}
+
+.matches-table td:hover {
+    background-color: #555;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #222;
+    color: #aaa;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .ppv-container {
+        justify-content: center;
+    }
+
+    .ppv-card {
+        width: 200px;
+    }
+
+    .matches-container {
+        justify-content: center;
+    }
+
+    .match-card {
+        width: 200px;
+        height: 200px;
+    }
+
+    .matches-table th,
+    .matches-table td {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .matches-table {
+        width: 95%;
+    }
+
+    .featured-header {
+        font-size: 2.5em;
+    }
+}
