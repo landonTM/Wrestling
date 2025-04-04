@@ -54,24 +54,24 @@ section {
 /* Featured Matches Section */
 .matches-container {
     display: flex;
-    justify-content: space-around; /* Space out the match cards */
-    flex-wrap: wrap; /* Allow the cards to wrap on smaller screens */
-    gap: 20px; /* Add space between cards */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Featured Match Cards (Square) */
+/* Featured Match Cards */
 .match-card {
     background-color: #333;
-    border-radius: 8px; /* Slight rounded corners */
+    border-radius: 8px;
     padding: 20px;
-    width: 250px; /* Fixed width for square */
-    height: 250px; /* Fixed height for square */
+    width: 250px;
+    height: 250px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Vertically center the content inside the card */
+    justify-content: center;
 }
 
 .match-header {
@@ -106,7 +106,6 @@ section {
 .match-details strong {
     color: #f39c12;
 }
-
 
 /* PPV Images Grid */
 .ppv-container {
@@ -144,8 +143,8 @@ section {
 
 /* Table Styling */
 .matches-table {
-    width: 100%;
-    max-width: 1000px;
+    width: 95%;
+    max-width: 1400px;
     margin: 0 auto;
     border-collapse: collapse;
     margin-top: 20px;
@@ -180,6 +179,14 @@ section {
 
 .matches-table td:hover {
     background-color: #555;
+}
+
+/* Filter Container Align Right */
+.filter-container {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }
 
 /* Footer Styles */
@@ -226,5 +233,41 @@ footer {
 
     .featured-header {
         font-size: 2.5em;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    #navMenu {
+        display: none;
+        background-color: #333;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    #navMenu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #navMenu ul li {
+        padding: 20px;
     }
 }
