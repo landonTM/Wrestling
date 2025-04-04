@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WrestleMania Matches - Landon's Wrestling Database</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Linking the styles.css file -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .filter-container {
+        width: 95%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+    .filter-container label {
+        margin-right: 8px;
+    }
+    .filter-container select, .filter-container input {
+        padding: 8px 12px;
+        font-size: 1em;
+    }
+    .stats-container {
+        text-align: center;
+        margin: 10px auto 30px;
+        color: #f5f5f5;
+        font-size: 1.1em;
+    }
+    .matches-table {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+</style>
 </head>
 <body>
 
@@ -22,8 +47,22 @@
     <section>
         <h2 class="featured-header">WrestleMania Matches</h2>
 
-        <!-- WrestleMania Table -->
-        <table class="matches-table">
+        <div class="filter-container">
+          <label for="eventFilter">Filter by Event: </label>
+          <select id="eventFilter">
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div class="filter-container">
+          <label for="wrestlerSearch">Search Wrestler: </label>
+          <input type="text" id="wrestlerSearch" placeholder="e.g. Roman Reigns">
+        </div>
+
+        <div class="stats-container" id="eventStats">
+            Showing all events. Total matches: <span id="matchCount"></span>
+        </div>
+
+        <table class="matches-table" id="matchTable">
             <thead>
                 <tr>
                     <th>Rating</th>
@@ -36,1001 +75,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sun, Apr 2nd, 2023</td>
-                    <td>Roman Reigns vs. Cody Rhodes</td>
-                    <td>WrestleMania 39</td>
-                    <td>Roman Reigns</td>
-                    <td>Cody Rhodes</td>
-                    <td>Undisputed WWE Universal Championship Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sun, Apr 2nd, 2023</td>
-                    <td>Drew McIntyre vs. Sheamus vs. GUNTHER</td>
-                    <td>WrestleMania 39</td>
-                    <td>GUNTHER</td>
-                    <td>Drew McIntyre & Sheamus</td>
-                    <td>Intercontinental Championship Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sat, Apr 1st, 2023</td>
-                    <td>The Usos vs. Sami Zayn & Kevin Owens</td>
-                    <td>WrestleMania 39</td>
-                    <td>The Usos</td>
-                    <td>Sami Zayn & Kevin Owens</td>
-                    <td>Undisputed Tag Team Championship Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sun, Apr 3rd, 2022</td>
-                    <td>Sami Zayn vs. Johnny Knoxville</td>
-                    <td>WrestleMania 38</td>
-                    <td>Johnny Knoxville</td>
-                    <td>Sami Zayn</td>
-                    <td>Anything Goes Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sat, Apr 2nd, 2022</td>
-                    <td>Cody Rhodes vs. Seth Rollins</td>
-                    <td>WrestleMania 38</td>
-                    <td>Cody Rhodes</td>
-                    <td>Seth Rollins</td>
-                    <td></td> <!-- No match type provided -->
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sat, Apr 2nd, 2022</td>
-                    <td>Bianca Belair vs. Becky Lynch</td>
-                    <td>WrestleMania 38</td>
-                    <td>Bianca Belair</td>
-                    <td>Becky Lynch</td>
-                    <td>Raw Women's Championship Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sat, Apr 10th, 2021</td>
-                    <td>Bianca Belair vs. Sasha Banks</td>
-                    <td>WrestleMania 37</td>
-                    <td>Bianca Belair</td>
-                    <td>Sasha Banks</td>
-                    <td>Smackdown Women's Championship Match</td>
-                </tr>
-                <tr>
-                    <td>⭐⭐⭐⭐⭐</td>
-                    <td>Sun, Apr 6th, 2014</td>
-                    <td>Randy Orton vs. Daniel Bryan vs. Batista</td>
-                    <td>WrestleMania 30</td>
-                    <td>Daniel Bryan</td>
-                    <td>Randy Orton & Batista</td>
-                    <td>WWE World Heavyweight Championship Match</td>
-                </tr>
-				<tr>
-					<td>⭐⭐⭐⭐&frac34;</td>
-					<td>Sat, Apr 2nd, 2023</td>
-					<td>Rhea Ripley vs. Charlotte</td>
-					<td>WrestleMania 39</td>
-					<td>Rhea Ripley</td>
-					<td>Charlotte</td>
-					<td>Smackdown Women's Championship Match</td>
-				</tr>
-				<tr>
-					<td>⭐⭐⭐⭐&frac34;</td>
-					<td>Sun, Apr 11th, 2021</td>
-					<td>Roman Reigns vs. Daniel Bryan vs. Edge</td>
-					<td>WrestleMania 37</td>
-					<td>Roman Reigns</td>
-					<td>Daniel Bryan & Edge</td>
-					<td>Universal Championship Match</td>
-				</tr>
-				<tr>
-					<td>⭐⭐⭐⭐&frac34;</td>
-					<td>Sun, Apr 5th, 2020</td>
-					<td>John Cena vs. "The Fiend" Bray Wyatt</td>
-					<td>WrestleMania 36</td>
-					<td>The Fiend</td>
-					<td>John Cena</td>
-					<td>Firefly Funhouse Match</td>
-				</tr>
-				<tr>
-  					<td>⭐⭐⭐⭐&frac12;</td>
-					<td>Sun, Apr 5th, 2020</td>
-					<td>The Undertaker vs. AJ Styles</td>
-					<td>WrestleMania 36</td>
-					<td>The Undertaker</td>
-					<td>AJ Styles</td>
-					<td>Boneyard Match</td>
-					</tr>
-					<tr>
-					<td>⭐⭐⭐⭐&frac12;</td>
-					<td>Sun, Mar 29th, 2014</td>
-					<td>Daniel Bryan vs. Triple H</td>
-					<td>WrestleMania 30</td>
-					<td>Daniel Bryan</td>
-					<td>Triple H</td>
-					<td>WWE World Heavyweight Championship Match</td>
-				</tr>
-				</tr>
-				<tr>
-					<td>⭐⭐⭐⭐&frac12;</td>
-					<td>Sun, Apr 3rd, 2016</td>
-					<td>Charlotte vs. Sasha Banks vs. Becky Lynch</td>
-					<td>WrestleMania 32</td>
-					<td>Charlotte</td>
-					<td>Sasha Banks & Becky Lynch</td>
-					<td>Women's Championship Match</td>
-				</tr>
-				<tr>
-					<td>⭐⭐⭐⭐&frac12;</td>
-					<td>Sun, Mar 29th, 2015</td>
-					<td>Brock Lesnar vs. Roman Reigns</td>
-					<td>WrestleMania 31</td>
-					<td>Brock Lesnar</td>
-					<td>Roman Reigns</td>
-					<td>WWE World Heavyweight Championship Match</td>
-				</tr>
-			
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sat, Apr 2nd, 2022</td>
-    <td>Sheamus vs. Matt Riddle</td>
-    <td>WrestleMania 37</td>
-    <td>Sheamus</td>
-    <td>Matt Riddle</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Kofi Kingston vs. John Morrison vs. Jimmy Uso</td>
-    <td>WrestleMania 36</td>
-    <td>Kofi Kingston</td>
-    <td>John Morrison & Jimmy Uso</td>
-    <td>Smackdown Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Daniel Bryan vs. Kofi Kingston</td>
-    <td>WrestleMania 35</td>
-    <td>Kofi Kingston</td>
-    <td>Daniel Bryan</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Seth Rollins vs. The Miz vs. Finn Balor</td>
-    <td>WrestleMania 34</td>
-    <td>Seth Rollins</td>
-    <td>The Miz & Finn Balor</td>
-    <td>Intercontinental Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>Shane McMahon vs. AJ Styles</td>
-    <td>WrestleMania 33</td>
-    <td>AJ Styles</td>
-    <td>Shane McMahon</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Ronda Rousey & Kurt Angle vs. Stephanie McMahon & Triple H</td>
-    <td>WrestleMania 34</td>
-    <td>Ronda Rousey & Kurt Angle</td>
-    <td>Stephanie McMahon & Triple H</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐&frac14</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Charlotte Flair vs. Asuka</td>
-    <td>WrestleMania 34</td>
-    <td>Charlotte Flair</td>
-    <td>Asuka</td>
-    <td>Smackdown Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Street Profits vs. Braun Strowman & Ricochet vs. Alpha Academy vs. The Viking Raiders</td>
-    <td>WrestleMania 39</td>
-    <td>Street Profits</td>
-    <td>Braun Strowman & Ricochet & Alpha Academy & The Viking Raiders</td>
-    <td>Raw Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Seth Rollins vs. Logan Paul</td>
-    <td>WrestleMania 39</td>
-    <td>Seth Rollins</td>
-    <td>Logan Paul</td>
-    <td>Hell in a Cell Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Edge vs. Finn Balor</td>
-    <td>WrestleMania 39</td>
-    <td>Edge</td>
-    <td>Finn Balor</td>
-    <td>No Holds Barred Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Rey Mysterio & Dominik Mysterio vs. The Miz & Logan Paul</td>
-    <td>WrestleMania 38</td>
-    <td>Rey Mysterio & Dominik Mysterio</td>
-    <td>The Miz & Logan Paul</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>"Stone Cold" Steve Austin vs. Kevin Owens</td>
-    <td>WrestleMania 38</td>
-    <td>Stone Cold Steve Austin</td>
-    <td>Kevin Owens</td>
-    <td>No Holds Barred Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Sting vs. Triple H</td>
-    <td>WrestleMania 31</td>
-    <td>Triple H</td>
-    <td>Sting</td>
-    <td>No Holds Barred Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>RK-Bro vs. Alpha Academy vs. The Street Profits</td>
-    <td>WrestleMania 38</td>
-    <td>RK-Bro</td>
-    <td>Alpha Academy & The Street Profits</td>
-    <td>Raw Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 10th, 2021</td>
-    <td>Seth Rollins vs. Cesaro</td>
-    <td>WrestleMania 37</td>
-    <td>Seth Rollins</td>
-    <td>Cesaro</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 10th, 2021</td>
-    <td>Bad Bunny & Damian Priest vs. The Miz & John Morrison</td>
-    <td>WrestleMania 37</td>
-    <td>Bad Bunny & Damian Priest</td>
-    <td>The Miz & John Morrison</td>
-    <td>Smackdown Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sat, Apr 10th, 2021</td>
-    <td>Kevin Owens vs. Sami Zayn</td>
-    <td>WrestleMania 37</td>
-    <td>Kevin Owens</td>
-    <td>Sami Zayn</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐⭐</td>
-    <td>Sun, Mar 29th, 2015</td>
-    <td>Daniel Bryan vs. Bad News Barrett vs. Dolph Ziggler vs. Stardust vs. Luke Harper vs. R-Truth vs. Dean Ambrose</td>
-    <td>WrestleMania 31</td>
-    <td>Daniel Bryan</td>
-    <td>Bad News Barrett & Dolph Ziggler & Stardust & Luke Harper & R-Truth & Dean Ambrose</td>
-    <td>Intercontinental Championship Ladder Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Rey Mysterio vs. Dominik Mysterio</td>
-    <td>WrestleMania 39</td>
-    <td>Rey Mysterio</td>
-    <td>Dominik Mysterio</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Pat McAfee vs. Austin Theory</td>
-    <td>WrestleMania 38</td>
-    <td>Pat McAfee</td>
-    <td>Austin Theory</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Bobby Lashley vs. Drew McIntyre</td>
-    <td>WrestleMania 37</td>
-    <td>Bobby Lashley</td>
-    <td>Drew McIntyre</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Enzo Amore & Big Cass vs. The Bar vs. The OC vs. The Hardy Boyz</td>
-    <td>WrestleMania 33</td>
-    <td>Enzo Amore & Big Cass</td>
-    <td>The Bar & The OC & The Hardy Boyz</td>
-    <td>Raw Tag Team Championship Ladder Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Kevin Owens vs. Chris Jericho</td>
-    <td>WrestleMania 33</td>
-    <td>Kevin Owens</td>
-    <td>Chris Jericho</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Goldberg vs. Brock Lesnar</td>
-    <td>WrestleMania 33</td>
-    <td>Goldberg</td>
-    <td>Brock Lesnar</td>
-    <td>Universal Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac34;</td>
-    <td>Sun, Mar 29th, 2015</td>
-    <td>Randy Orton vs. Seth Rollins</td>
-    <td>WrestleMania 31</td>
-    <td>Randy Orton</td>
-    <td>Seth Rollins</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac12;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Shane McMahon vs. The Miz</td>
-    <td>WrestleMania 35</td>
-    <td>Shane McMahon</td>
-    <td>The Miz</td>
-    <td>Falls Count Anywhere Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac12;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Seth Rollins vs. Triple H</td>
-    <td>WrestleMania 33</td>
-    <td>Seth Rollins</td>
-    <td>Triple H</td>
-    <td>Unsanctioned Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac14;</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>Bayley vs. Charlotte Flair vs. Nia Jax vs. Sasha Banks</td>
-    <td>WrestleMania 33</td>
-    <td>Bayley</td>
-    <td>Charlotte Flair & Nia Jax & Sasha Banks</td>
-    <td>Raw Women's Championship Elimination Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐ &frac14;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>AJ Styles vs. Chris Jericho</td>
-    <td>WrestleMania 32</td>
-    <td>AJ Styles</td>
-    <td>Chris Jericho</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Brock Lesnar vs. Omos</td>
-    <td>WrestleMania 39</td>
-    <td>Brock Lesnar</td>
-    <td>Omos</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Bianca Belair vs. Asuka</td>
-    <td>WrestleMania 39</td>
-    <td>Bianca Belair</td>
-    <td>Asuka</td>
-    <td>Raw Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Sasha Banks & Naomi vs. Carmella & Zelina Vega vs. Liv Morgan & Rhea Ripley vs. Natalya & Shayna Baszler</td>
-    <td>WrestleMania 38</td>
-    <td>Sasha Banks & Naomi</td>
-    <td>Carmella & Zelina Vega & Liv Morgan & Rhea Ripley & Natalya & Shayna Baszler</td>
-    <td>Women's Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Rhea Ripley vs. Asuka</td>
-    <td>WrestleMania 37</td>
-    <td>Rhea Ripley</td>
-    <td>Asuka</td>
-    <td>Raw Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Becky Lynch vs. Shayna Baszler</td>
-    <td>WrestleMania 36</td>
-    <td>Becky Lynch</td>
-    <td>Shayna Baszler</td>
-    <td>Raw Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Kevin Owens vs. Seth Rollins</td>
-    <td>WrestleMania 36</td>
-    <td>Kevin Owens</td>
-    <td>Seth Rollins</td>
-    <td></td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>AJ Styles vs. Shinsuke Nakamura</td>
-    <td>WrestleMania 34</td>
-    <td>AJ Styles</td>
-    <td>Shinsuke Nakamura</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐⭐</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>The Bludgeon Brothers vs. The Usos vs. The New Day</td>
-    <td>WrestleMania 34</td>
-    <td>The Bludgeon Brothers</td>
-    <td>The Usos & The New Day</td>
-    <td>Smackdown Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac34;</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Roman Reigns vs. Brock Lesnar</td>
-    <td>WrestleMania 38</td>
-    <td>Roman Reigns</td>
-    <td>Brock Lesnar</td>
-    <td>WWE Championship vs Universal Title Championship Winner Take All</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac34;</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Shane McMahon & Daniel Bryan vs. Sami Zayn & Kevin Owens</td>
-    <td>WrestleMania 34</td>
-    <td>Shane McMahon & Daniel Bryan</td>
-    <td>Sami Zayn & Kevin Owens</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Trish Stratus & Becky Lynch & Lita vs Damage Control</td>
-    <td>WrestleMania 39</td>
-    <td>Trish Stratus & Becky Lynch & Lita</td>
-    <td>Damage Control</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sat, Apr 2nd, 2023</td>
-    <td>Ronda Rousey & Shayna Baszler vs. Liv Morgan & Raquel Rodriguez vs. Natalya & Shotzi vs. Chelsea Green & Sonya Deville</td>
-    <td>WrestleMania 39</td>
-    <td>Ronda Rousey & Shayna Baszler</td>
-    <td>Liv Morgan & Raquel Rodriguez & Natalya & Shotzi & Chelsea Green & Sonya Deville</td>
-    <td>Women's Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Apr 8th, 2022</td>
-    <td>Baron Corbin vs. Drew McIntyre</td>
-    <td>WrestleMania 38</td>
-    <td>Baron Corbin</td>
-    <td>Drew McIntyre</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Bayley vs. Sasha Banks vs. Lacey Evans vs. Naomi vs. Tamina</td>
-    <td>WrestleMania 36</td>
-    <td>Bayley</td>
-    <td>Sasha Banks & Lacey Evans & Naomi & Tamina</td>
-    <td>Smackdown Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>AJ Styles vs. Randy Orton</td>
-    <td>WrestleMania 35</td>
-    <td>AJ Styles</td>
-    <td>Randy Orton</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Alexa Bliss vs. Nia Jax</td>
-    <td>WrestleMania 34</td>
-    <td>Alexa Bliss</td>
-    <td>Nia Jax</td>
-    <td>Raw Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Andre the Giant Memorial Battle Royal</td>
-    <td>WrestleMania 32</td>
-    <td>Baron Corbin</td> <!-- No winner specified -->
-    <td> Fandango, Damien Sandow, Shaquille O'Neal, Big Show, Viktor, Diamond Dallas Page, Konnor, Tatanka, Jack Swagger, R-Truth, Goldust, Curtis Axel, Adam Rose, Heath Slater, Tyler Breeze, Mark Henry, Bo Dallas, Darren Young, and Kane</td> <!-- No loser specified -->
-    <td>Third Annual Andre the Giant Battle Royal</td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac12;</td>
-    <td>Sun, Mar 29th, 2015</td>
-    <td>AJ Lee & Paige vs. Nikki Bella & Brie Bella</td>
-    <td>WrestleMania 31</td>
-    <td>AJ Lee & Paige</td>
-    <td>Nikki Bella & Brie Bella</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Braun Strowman vs. Shane McMahon</td>
-    <td>WrestleMania 37</td>
-    <td>Braun Strowman</td>
-    <td>Shane McMahon</td>
-    <td>Steel Cage Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Becky Lynch vs. Charlotte Flair vs. Ronda Rousey</td>
-    <td>WrestleMania 35</td>
-    <td>Becky Lynch</td>
-    <td>Charlotte Flair & Ronda Rousey</td>
-    <td>Winner Take All for the Raw and Smackdown Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Batista vs. Triple H</td>
-    <td>WrestleMania 35</td>
-    <td>Batista</td>
-    <td>Triple H</td>
-    <td>No Holds Barred Retirement Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>The IIconics vs. Bayley & Sasha Banks vs. Nia Jax & Tamina vs. Beth Phoenix & Natalya</td>
-    <td>WrestleMania 35</td>
-    <td>The IIconics</td>
-    <td>Bayley & Sasha Banks & Nia Jax & Tamina & Beth Phoenix & Natalya</td>
-    <td>Women's Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 5th, 2015</td>
-    <td>Bray Wyatt vs. The Undertaker</td>
-    <td>WrestleMania 31</td>
-    <td>Bray Wyatt</td>
-    <td>The Undertaker</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐&frac14;</td>
-    <td>Sun, Apr 6th, 2014</td>
-    <td>Andre the Giant Memorial Battle Royal</td>
-    <td>WrestleMania 30</td>
-    <td>Cesaro</td> <!-- No winner specified -->
-    <td>Yoshi Tatsu, Brad Maddox, Brodus Clay, The Great Khali, Zack Ryder, Darren Young, Drew McIntyre, Jinder Mahal, Heath Slater, Mark Henry, Titus O'Neil, The Miz, Santino Marella, Xavier Woods, Damien Sandow, Justin Gabriel, David Otunga, Big E, Fandango, R-Truth, Sin Cara, Tyson Kidd, Goldust, Cody Rhodes, Rey Mysterio, Kofi Kingston, Dolph Ziggler, Alberto Del Rio, Sheamus, and Big Show</td> <!-- No loser specified -->
-    <td>First Annual Andre the Giant Battle Royal</td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sat, Apr 2nd, 2022</td>
-    <td>The Usos vs. Rick Boogz & Shinsuke Nakamura</td>
-    <td>WrestleMania 38</td>
-    <td>The Usos</td>
-    <td>Rick Boogz & Shinsuke Nakamura</td>
-    <td>Smackdown Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sat, Apr 2nd, 2022</td>
-    <td>Ronda Rousey vs. Charlotte</td>
-    <td>WrestleMania 38</td>
-    <td>Ronda Rousey</td>
-    <td>Charlotte</td>
-    <td>Smackdown Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Edge vs. AJ Styles</td>
-    <td>WrestleMania 38</td>
-    <td>Edge</td>
-    <td>AJ Styles</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>AJ Styles & Omos vs. The New Day</td>
-    <td>WrestleMania 37</td>
-    <td>AJ Styles & Omos</td>
-    <td>The New Day</td>
-    <td>Raw Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 8th, 2019</td>
-    <td>Drew McIntyre vs. Roman Reigns</td>
-    <td>WrestleMania 35</td>
-    <td>Roman Reigns</td>
-    <td>Drew McIntyre</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>The Usos vs. Rusev & Shinsuke Nakamura vs. Aleister Black & Ricochet vs. The Bar</td>
-    <td>WrestleMania 35</td>
-    <td>The Usos</td>
-    <td>Rusev & Shinsuke Nakamura & Aleister Black & Ricochet & The Bar</td>
-    <td>Smackdown Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Jinder Mahal vs. Rusev vs. Bobby Roode vs. Randy Orton</td>
-    <td>WrestleMania 34</td>
-    <td>Jinder Mahal</td>
-    <td>Rusev & Bobby Roode & Randy Orton</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>John Cena & Nikki Bella vs. The Miz & Maryse</td>
-    <td>WrestleMania 33</td>
-    <td>John Cena & Nikki Bella</td>
-    <td>The Miz & Maryse</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Mar 29th, 2015</td>
-    <td>John Cena vs. Rusev</td>
-    <td>WrestleMania 31</td>
-    <td>John Cena</td>
-    <td>Rusev</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐⭐</td>
-    <td>Sun, Apr 6th, 2014</td>
-    <td>John Cena vs. Bray Wyatt</td>
-    <td>WrestleMania 30</td>
-    <td>John Cena</td>
-    <td>Bray Wyatt</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Big E vs. Apollo Crews</td>
-    <td>WrestleMania 37</td>
-    <td>Apollo Crews</td>
-    <td>Big E</td>
-    <td>Intercontinental Championship Nigerian Drum Street Fight Match</td>
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Brock Lesnar vs. Drew McIntyre</td>
-    <td>WrestleMania 36</td>
-    <td>Drew McIntyre</td>
-    <td>Brock Lesnar</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>John Cena vs. The Undertaker</td>
-    <td>WrestleMania 34</td>
-    <td>The Undertaker</td>
-    <td>John Cena</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Braun Strowman & Nicholas vs. The Bar</td>
-    <td>WrestleMania 34</td>
-    <td>Braun Strowman & Nicholas</td>
-    <td>The Bar</td>
-    <td>Raw Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Roman Reigns vs. Triple H</td>
-    <td>WrestleMania 32</td>
-    <td>Roman Reigns</td>
-    <td>Triple H</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Shane McMahon vs. The Undertaker</td>
-    <td>WrestleMania 32</td>
-    <td>The Undertaker</td>
-    <td>Shane McMahon</td>
-    <td>Hell in a Cell Match</td>
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Sheamus, Rusev, & Alberto Del Rio vs. The New Day</td>
-    <td>WrestleMania 32</td>
-    <td>Sheamus, Rusev, & Alberto Del Rio</td>
-    <td>The New Day</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac34;</td>
-    <td>Sun, Apr 6th, 2014</td>
-    <td>The Undertaker vs. Brock Lesnar</td>
-    <td>WrestleMania 30</td>
-    <td>Brock Lesnar</td>
-    <td>The Undertaker</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac12;</td>
-    <td>Sat, Apr 1st, 2023</td>
-    <td>Austin Theory vs. John Cena</td>
-    <td>WrestleMania 39</td>
-    <td>Austin Theory</td>
-    <td>John Cena</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac12;</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Aleister Black vs. Bobby Lashley</td>
-    <td>WrestleMania 36</td>
-    <td>Aleister Black</td>
-    <td>Bobby Lashley</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac12;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Brock Lesnar vs. Seth Rollins</td>
-    <td>WrestleMania 35</td>
-    <td>Seth Rollins</td>
-    <td>Brock Lesnar</td>
-    <td>Universal Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac12;</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>Naomi vs. Alexa Bliss vs. Mickie James vs. Carmella vs. Becky Lynch</td>
-    <td>WrestleMania 33</td>
-    <td>Naomi</td>
-    <td>Alexa Bliss & Mickie James & Carmella & Becky Lynch</td>
-    <td>Smackdown Women's Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac12;</td>
-    <td>Sun, Apr 6th, 2014</td>
-    <td>The Shield vs. The New Age Outlaws & Kane</td>
-    <td>WrestleMania 30</td>
-    <td>The Shield</td>
-    <td>The New Age Outlaws & Kane</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐&frac14;</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Bobby Lashley vs. Finn Balor</td>
-    <td>WrestleMania 35</td>
-    <td>Finn Balor</td>
-    <td>Bobby Lashley</td>
-    <td>Intercontinental Championship Match</td>
-</tr>
-<tr>
-    <td>⭐&frac14;</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>Roman Reigns vs. The Undertaker</td>
-    <td>WrestleMania 33</td>
-    <td>Roman Reigns</td>
-    <td>The Undertaker</td>
-    <td>No Holds Barred Match</td>
-</tr>
-<tr>
-    <td>⭐&frac14;</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>Brock Lesnar vs. Dean Ambrose</td>
-    <td>WrestleMania 32</td>
-    <td>Brock Lesnar</td>
-    <td>Dean Ambrose</td>
-    <td>Street Fight Match</td>
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Sheamus & Ridge Holland vs. The New Day</td>
-    <td>WrestleMania 38</td>
-    <td>Sheamus & Ridge Holland</td>
-    <td>The New Day</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Omos vs. Bobby Lashley</td>
-    <td>WrestleMania 38</td>
-    <td>Bobby Lashley</td>
-    <td>Omos</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Naomi & Lana vs. Billie Kay & Carmella vs. Dana Brooke & Mandy Rose vs. Liv Morgan & Ruby Riott vs. Natalya & Tamina</td>
-    <td>WrestleMania 37</td>
-    <td>Natalya & Tamina</td>
-    <td>Naomi & Lana & Billie Kay & Carmella & Dana Brooke & Mandy Rose & Liv Morgan & Ruby Riott</td>
-    <td>Women's Tag Team Championship Gauntlet Match</td>
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Braun Strowman vs. Goldberg</td>
-    <td>WrestleMania 36</td>
-    <td>Braun Strowman</td>
-    <td>Goldberg</td>
-    <td>Universal Championship Match</td>
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Otis vs. Dolph Ziggler</td>
-    <td>WrestleMania 36</td>
-    <td>Otis</td>
-    <td>Dolph Ziggler</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Austin Theory & Angel Garza vs. The Street Profits</td>
-    <td>WrestleMania 36</td>
-    <td>The Street Profits</td>
-    <td>Austin Theory & Angel Garza</td>
-    <td>Raw Tag Team Championship Match</td>
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Baron Corbin vs. Elias</td>
-    <td>WrestleMania 36</td>
-    <td>Elias</td>
-    <td>Baron Corbin</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Rey Mysterio vs. Samoa Joe</td>
-    <td>WrestleMania 35</td>
-    <td>Samoa Joe</td>
-    <td>Rey Mysterio</td>
-    <td>United States Championship Match</td>
-</tr>
-<tr>
-    <td>⭐</td>
-    <td>Sun, Apr 2nd, 2017</td>
-    <td>Randy Orton vs. Bray Wyatt</td>
-    <td>WrestleMania 33</td>
-    <td>Randy Orton</td>
-    <td>Bray Wyatt</td>
-    <td>WWE Championship Match</td>
-</tr>
-<tr>
-    <td>½⭐</td>
-    <td>Sun, Apr 7th, 2019</td>
-    <td>Kurt Angle vs. Baron Corbin</td>
-    <td>WrestleMania 35</td>
-    <td>Baron Corbin</td>
-    <td>Kurt Angle</td>
-    <td>Kurt Angle Retirement Match</td>
-</tr>
-<tr>
-    <td>0</td>
-    <td>Sun, Apr 3rd, 2016</td>
-    <td>The Rock vs. Eric Rowan</td>
-    <td>WrestleMania 32</td>
-    <td>The Rock</td>
-    <td>Eric Rowan</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>-&frac12;⭐</td>
-    <td>Sun, Apr 6th, 2014</td>
-    <td>Vickie Guerrero Invitational</td>
-    <td>WrestleMania 30</td>
-    <td>AJ Lee</td>
-    <td>Aksana, Alicia Fox, Brie Bella, Cameron, Emma, Eva Marie, Layla, Naomi, Natalya, Nikki Bella, Rosa Mendes, Summer Rae, and Tamina Snuka </td>
-    <td>Divas Championship Match</td>
-</tr>
-<tr>
-    <td>-⭐</td>
-    <td>Sun, Apr 5th, 2020</td>
-    <td>Sami Zayn vs. Daniel Bryan</td>
-    <td>WrestleMania 36</td>
-    <td>Sami Zayn</td>
-    <td>Daniel Bryan</td>
-    <td>Intercontinental Championship Match</td>
-</tr>
-<tr>
-    <td>-⭐⭐</td>
-    <td>Sun, Apr 8th, 2018</td>
-    <td>Roman Reigns vs. Brock Lesnar</td>
-    <td>WrestleMania 34</td>
-    <td>Brock Lesnar</td>
-    <td>Roman Reigns</td>
-    <td>Universal Championship Match</td>
-</tr>
-<tr>
-    <td>-⭐⭐&frac12;</td>
-    <td>Sun, Apr 11th, 2021</td>
-    <td>Randy Orton vs. "The Fiend" Bray Wyatt</td>
-    <td>WrestleMania 37</td>
-    <td>Randy Orton</td>
-    <td>"The Fiend" Bray Wyatt</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-<tr>
-    <td>-⭐⭐⭐⭐⭐</td>
-    <td>Sun, Apr 3rd, 2022</td>
-    <td>Pat McAfee vs. Vince McMahon</td>
-    <td>WrestleMania 38</td>
-    <td>Pat McAfee</td>
-    <td>Vince McMahon</td>
-    <td></td> <!-- No match type provided -->
-</tr>
-
-
-
             </tbody>
         </table>
 
@@ -1040,7 +84,96 @@
         <p>&copy; 2025 Landon's Wrestling Database. All rights reserved.</p>
     </footer>
 
-</body>
-</html>
+    <script>
+        async function loadMatches() {
+            const res = await fetch('matches.json');
+            const data = await res.json();
+            const tableBody = document.querySelector('#matchTable tbody');
+            const eventSet = new Set();
 
+            tableBody.innerHTML = '';
+
+            data.forEach(match => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${match.rating}</td>
+                    <td>${match.date}</td>
+                    <td>${match.match}</td>
+                    <td>${match.event}</td>
+                    <td>${match.winner}</td>
+                    <td>${match.loser}</td>
+                    <td>${match.type || ''}</td>
+                `;
+                tableBody.appendChild(row);
+                eventSet.add(match.event);
+            });
+
+            const filter = document.getElementById('eventFilter');
+            const wrestlerInput = document.getElementById('wrestlerSearch');
+
+            Array.from(eventSet)
+                .sort((a, b) => parseInt(b.match(/\d+/)) - parseInt(a.match(/\d+/)))
+                .forEach(event => {
+                    const opt = document.createElement('option');
+                    opt.value = event;
+                    opt.textContent = event;
+                    filter.appendChild(opt);
+                });
+
+            function applyCombinedFilters() {
+                const eventValue = filter.value;
+                const term = wrestlerInput.value.toLowerCase();
+                const rows = document.querySelectorAll('#matchTable tbody tr');
+
+                rows.forEach(row => {
+                    const event = row.children[3].innerText;
+                    const match = row.children[2].innerText.toLowerCase();
+                    const winner = row.children[4].innerText.toLowerCase();
+                    const loser = row.children[5].innerText.toLowerCase();
+
+                    const eventMatch = eventValue === 'all' || event === eventValue;
+                    const wrestlerMatch = match.includes(term) || winner.includes(term) || loser.includes(term);
+
+                    row.style.display = eventMatch && wrestlerMatch ? '' : 'none';
+                });
+
+                updateStats();
+            }
+
+            filter.addEventListener('change', applyCombinedFilters);
+            wrestlerInput.addEventListener('input', applyCombinedFilters);
+
+            applyCombinedFilters();
+        }
+
+        function extractRating(text) {
+    const negative = text.includes('-');
+    const full = (text.match(/⭐/g) || []).length;
+    const fraction = text.includes('¾') ? 0.75 : text.includes('½') ? 0.5 : text.includes('¼') ? 0.25 : 0;
+    const rating = full + fraction;
+    return negative ? -rating : rating;
+}
+
+        function updateStats() {
+            const filter = document.getElementById('eventFilter');
+            const rows = document.querySelectorAll('#matchTable tbody tr');
+            const matchCount = document.getElementById('matchCount');
+            const stats = document.getElementById('eventStats');
+
+            const visibleRows = Array.from(rows).filter(row => row.style.display !== 'none');
+            matchCount.textContent = visibleRows.length;
+
+            const ratings = visibleRows
+  .map(row => extractRating(row.children[0].innerText))
+  .filter(r => typeof r === 'number' && !isNaN(r));
+            const avgRating = ratings.length ? (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(2) : 'N/A';
+
+            const eventName = filter.value === 'all' ? 'all events' : filter.value;
+            stats.innerHTML = `Showing ${eventName}. Total matches: <span id="matchCount">${visibleRows.length}</span>. Average rating: <strong>${avgRating}</strong>`;
+        }
+
+        loadMatches();
+    </script>
+
+</body>
 </html>
